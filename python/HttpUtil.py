@@ -36,7 +36,7 @@ def httpPost(url, resource, params, apiKey, secretKey):
      conn = http.client.HTTPSConnection(url, timeout=10)
 
      tempParams = urllib.parse.urlencode(params) if params else ''
-     print(tempParams)
+     # print(tempParams)
 
      conn.request("POST", resource, tempParams, headers)
      response = conn.getresponse()
@@ -44,3 +44,11 @@ def httpPost(url, resource, params, apiKey, secretKey):
      params.clear()
      conn.close()
      return data
+
+
+def httpGet2(url, resource):
+    conn = http.client.HTTPSConnection(url, timeout=10)
+    conn.request("GET", resource)
+    response = conn.getresponse()
+    data = response.read().decode('utf-8')
+    return json.loads(data)
