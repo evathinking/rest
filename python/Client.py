@@ -7,25 +7,22 @@ Provide user specific data and interact with gate.io
 '''
 
 from gateAPI import GateIO
+from Commons import TradingFunctions
+import math
 
-## 填写 apiKey APISECRET
-apiKey = 'ec7f489fab9c0191b6b6e5e359921076'
-secretKey = '5e79352be02441028bfbd89465e825ca8c766863d8a7cf9df5ea8b272c9df326'
-## address
-btcAddress = 'your btc address'
+def calc_angle(x_point_s, y_point_s, x_point_e, y_point_e):
+    angle = 0
+    y_se = y_point_e - y_point_s;
+    x_se = x_point_e - x_point_s;
+    if y_se == 0:
+        angle = 0
+    elif y_se > 0:
+        angle = 90 - (math.atan(x_se / y_se) * 180 / math.pi)
+    else:
+        angle = -((math.atan(x_se / y_se) * 180 / math.pi)+90)
+    return angle
 
-
-## Provide constants
-
-API_QUERY_URL = 'data.gateio.co'
-API_TRADE_URL = 'api.gateio.co'
-
-## Create a gate class instance
-
-gate_query = GateIO(API_QUERY_URL, apiKey, secretKey)
-gate_trade = GateIO(API_TRADE_URL, apiKey, secretKey)
-
-
+print(calc_angle(x_point_s=0,y_point_s=6.8851,x_point_e=1,y_point_e=3.4))
 # Trading Pairs
 # 返回所有系统支持的交易对
 #     eth_btc: 以太币对比特币交易
@@ -122,12 +119,7 @@ gate_trade = GateIO(API_TRADE_URL, apiKey, secretKey)
 # data =gate_query.candleStick2(currency='eos_usdt', group_sec=900, range_hour=240)
 # print (data)
 # print(len(data['data']))
-import time
-while True:
-    data = gate_query.ticker('eos_usdt')['last']
 
-    print (data)
-    time.sleep(10)
 # Get account fund balances
 # print(gate_trade.balances())
 

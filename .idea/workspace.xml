@@ -1,39 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0991b173-dcf6-4c3f-a578-50a92ab60da8" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/csharp/ReadMe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/csharp/src/com/gate/rest/GetHMACSHA512.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/csharp/src/com/gate/rest/HttpUtilManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/csharp/src/com/gate/rest/stock/IStockRestApi.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/csharp/src/com/gate/rest/test/StockRestApiTest.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/go/gateioApi.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/ReadMe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/lib/commons-codec-1.7.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/lib/commons-io-2.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/lib/commons-logging-1.0.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/lib/fastjson-1.1.23.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/lib/httpclient-4.3.6.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/lib/httpcore-4.3.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/lib/jackson-annotations-2.0.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/lib/jackson-core-2.0.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/lib/jackson-databind-2.0.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/lib/json-20140107.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/com/gate/rest/HttpUtilManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/com/gate/rest/MD5Util.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/com/gate/rest/StockClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/com/gate/rest/StringUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/com/gate/rest/stock/IStockRestApi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/com/gate/rest/stock/impl/StockRestApi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nodejs/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nodejs/lib/gate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nodejs/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/perl/gateioApi.pl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/gate.php" beforeDir="false" />
+    <list default="true" id="0991b173-dcf6-4c3f-a578-50a92ab60da8" name="Default" comment="version1">
+      <change afterPath="$PROJECT_DIR$/python/buy_flag" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python/sell_flag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/Business.csv" beforeDir="false" afterPath="$PROJECT_DIR$/python/Business.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/Client.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/Client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/Commons.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/Commons.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/Ma_Value.csv" beforeDir="false" afterPath="$PROJECT_DIR$/python/Ma_Value.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/Run.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/Run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/log.log" beforeDir="false" afterPath="$PROJECT_DIR$/python/log.log" afterDir="false" />
     </list>
     <ignored path="Gateio.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -58,8 +35,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/python/Client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="127" lean-forward="true" selection-start-line="127" selection-end-line="127" />
+            <state relative-caret-position="108">
+              <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+              <folding>
+                <element signature="e#123#149#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -86,34 +66,29 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/python/Run.py">
+        <entry file="file://$PROJECT_DIR$/python/Commons.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="32" column="34" lean-forward="true" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
+            <state relative-caret-position="708">
+              <caret line="155" column="41" selection-start-line="155" selection-start-column="41" selection-end-line="155" selection-end-column="41" />
               <folding>
-                <element signature="e#173#184#0" expanded="true" />
+                <element signature="n#!!doc" />
+                <element signature="e#43#176#1" />
+                <element signature="e#177#187#0" expanded="true" />
+                <element signature="e#8206#9510#0" />
+                <element signature="e#9569#10884#0" />
+                <element signature="e#10939#11043#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/Python37/Lib/json/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="340" selection-start-line="340" selection-end-line="340" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/python/Commons.py">
+        <entry file="file://$PROJECT_DIR$/python/Run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="183" lean-forward="true" selection-start-line="183" selection-end-line="183" />
+            <state relative-caret-position="156">
+              <caret line="18" column="12" lean-forward="true" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
               <folding>
-                <element signature="e#43#176#1" />
-                <element signature="e#177#187#0" expanded="true" />
+                <element signature="e#173#184#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -134,6 +109,9 @@
       <find>json</find>
       <find>logging.info</find>
       <find>logger.</find>
+      <find>17:01</find>
+      <find>__gain_flag</find>
+      <find>caculate_ma</find>
     </findStrings>
     <replaceStrings>
       <replace>logger.info</replace>
@@ -150,9 +128,11 @@
         <option value="$PROJECT_DIR$/python/Constant.py" />
         <option value="$PROJECT_DIR$/python/HttpUtil.py" />
         <option value="$PROJECT_DIR$/python/gateAPI.py" />
+        <option value="$PROJECT_DIR$/python/sell_flag" />
         <option value="$PROJECT_DIR$/python/Client.py" />
-        <option value="$PROJECT_DIR$/python/Run.py" />
+        <option value="$PROJECT_DIR$/python/buy_flag" />
         <option value="$PROJECT_DIR$/python/Commons.py" />
+        <option value="$PROJECT_DIR$/python/Run.py" />
       </list>
     </option>
   </component>
@@ -163,8 +143,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="159" />
-    <option name="y" value="-16" />
+    <option name="x" value="-45" />
+    <option name="y" value="313" />
     <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
@@ -198,10 +178,13 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="C:/Python37/python.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/python" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\Gateio\python" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="G:\Gateio\python" />
     </key>
@@ -475,25 +458,33 @@
       <option name="project" value="LOCAL" />
       <updated>1560922099122</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="version1">
+      <created>1560922361455</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1560922361455</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13616072" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18080357" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4985119" visible="true" weight="0.43371522" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.49099836" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4985119" visible="true" weight="0.26350245" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.28477904" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="9" sideWeight="0.5014881" side_tool="true" visible="true" weight="0.43371522" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5014881" side_tool="true" weight="0.43371522" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.3289689" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -517,85 +508,108 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/python/Client.py</url>
-          <line>50</line>
-          <option name="timeStamp" value="4" />
+          <url>file://$PROJECT_DIR$/python/Commons.py</url>
+          <line>28</line>
+          <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/python/Client.py</url>
-          <line>121</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/python/Client.py</url>
-          <line>123</line>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/python/Client.py</url>
-          <line>126</line>
-          <option name="timeStamp" value="36" />
+          <url>file://$PROJECT_DIR$/python/Run.py</url>
+          <line>46</line>
+          <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/python/Commons.py</url>
-          <line>25</line>
-          <option name="timeStamp" value="38" />
+          <line>242</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/python/Run.py</url>
+          <line>61</line>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/python/Run.py</url>
+          <line>39</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/python/Run.py</url>
+          <line>38</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/python/Run.py</url>
+          <line>32</line>
+          <option name="timeStamp" value="61" />
         </line-breakpoint>
       </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="self.gate_query.ticker(self.Currency)['last']" language="Python" />
-        <watch expression="self.balances" language="Python" />
-        <watch expression="self.balances" language="Python" />
-        <watch expression="self.balances['available']['USDT']" language="Python" />
+        <watch expression="-((math.atan(x_se / y_se) * 180 / math.pi)+90)" language="Python" />
+        <watch expression="tc.get_buy_flag()" language="Python" />
+        <watch expression="tc.get_sell_flag()" language="Python" />
+        <watch expression="bool(t.read().strip())" language="Python" />
+        <watch expression="eval(res)" language="Python" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
       <expression>
-        <expression-string>self.balances['available']['USDT']</expression-string>
+        <expression-string>eval(res)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>self.balances</expression-string>
+        <expression-string>bool(t.read().strip())</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>self.balances['available']</expression-string>
+        <expression-string>bool(res)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>self.gate_query.ticker(self.Currency)['last']</expression-string>
+        <expression-string>tc.get_sell_flag()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>print(stock_data)</expression-string>
+        <expression-string>tc.get_buy_flag()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>conn.request(&quot;GET&quot;, resource + '/' + params)</expression-string>
+        <expression-string>-((math.atan(x_se / y_se) * 180 / math.pi)+90)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>self.buy_eos_amount</expression-string>
+        <expression-string>(math.atan(x_se / y_se) * 180 / math.pi)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>self.HedgeFunds</expression-string>
+        <expression-string>-180+(math.atan(x_se / y_se) * 180 / math.pi)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>self.buy_price</expression-string>
+        <expression-string>(math.atan(x_se / y_se) * 180 / math.pi)-90</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>(math.atan(x_se / y_se) * 180 / math.pi)+90</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -616,20 +630,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="282">
           <caret line="151" column="55" lean-forward="true" selection-start-line="151" selection-start-column="55" selection-end-line="151" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python37/Lib/json/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="340" selection-start-line="340" selection-end-line="340" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/python/Client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="127" lean-forward="true" selection-start-line="127" selection-end-line="127" />
         </state>
       </provider>
     </entry>
@@ -657,29 +657,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/python/Run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="34" lean-forward="true" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
-          <folding>
-            <element signature="e#173#184#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/python/log.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/python/log.log">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2850">
+          <caret line="6" column="51" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python37/Lib/json/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="340" selection-start-line="340" selection-end-line="340" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python37/Lib/_bootlocale.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python/sell_flag">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python/buy_flag">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/python/Commons.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="183" lean-forward="true" selection-start-line="183" selection-end-line="183" />
+        <state relative-caret-position="708">
+          <caret line="155" column="41" selection-start-line="155" selection-start-column="41" selection-end-line="155" selection-end-column="41" />
           <folding>
+            <element signature="n#!!doc" />
             <element signature="e#43#176#1" />
             <element signature="e#177#187#0" expanded="true" />
+            <element signature="e#8206#9510#0" />
+            <element signature="e#9569#10884#0" />
+            <element signature="e#10939#11043#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python/Client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+          <folding>
+            <element signature="e#123#149#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python/Run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="18" column="12" lean-forward="true" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+          <folding>
+            <element signature="e#173#184#0" expanded="true" />
           </folding>
         </state>
       </provider>

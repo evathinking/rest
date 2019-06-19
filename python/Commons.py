@@ -14,7 +14,10 @@ import time,datetime
 import json
 import os, sys
 import logging
+import math
 import pandas as pd
+import talib as ta
+import numpy as np
 
 from gateAPI import GateIO
 
@@ -139,16 +142,21 @@ class TradingFunctions:
             f_csv.writerow(headers)
             f_csv.writerows(rows)
 
-    def caculate_ma(self):
+    def caculate_ma_kdj(self):
         # 导入数据
         stock_data = pd.read_csv(self.MaFilePath, parse_dates=True, index_col=0)
 
         # 数据按照时间倒序
         stock_data.sort_values(by="date", axis=0, ascending=False, inplace=True, kind='quicksort', na_position='last')
 
-        #  计算简单算术移动平均线MA - 注意：stock_data['close']为股票每天的收盘价
-        stock_data['Ma5'] = stock_data['close'].rolling(window=5).mean().shift(-4)
-
+        # #  计算简单算术移动平均线MA - 注意：stock_data['close']为股票每天的收盘价
+        # stock_data['Ma5'] = stock_data['close'].rolling(window=5).mean().shift(-4)
+        #
+        # # 计算kd指标
+        # stock_data['k'], stock_data['d'] = ta.STOCH(np.array(stock_data['high']), np.array(stock_data['low']),
+        #                                             np.array(stock_data['close']), \
+        #                                             fastk_period=9, slowk_period=3, slowk_matype=0, slowd_period=3,
+        #                                             slowd_matype=0)
         # 保存到表格
         stock_data.to_csv(self.MaFilePath, index=True)
 
@@ -156,15 +164,21 @@ class TradingFunctions:
         #      读取最新ma-value.csv,判断买点规则，返回true or false
 
         self.write_kdata_into_csv(self.get_gateio_kdata())
-        self.caculate_ma()
+        self.caculate_ma_kdj()
         stock_data = pd.read_csv(self.MaFilePath, parse_dates=True, index_col=0)
         first_line = stock_data.to_dict('record')[0]
 
         if float(first_line['low']) >= float(first_line['Ma5']):
-            self.logger.info("当前最新买点k线及ma值：")
-            self.logger.info(first_line)
-            return True
-        self.logger.info("当前非买点最新k线及ma值：")
+            second_line = stock_data.to_dict('record')[1]
+            angle = float(self.calc_angle(0, float(first_line['Ma5']), 1, float(second_line['Ma5'])))
+            if angle >= 0:
+                # if kdj['k'] <75:
+                    self.logger.info("【买点】当前最新买点k线及ma值：")
+                    self.logger.info(first_line)
+                    return True
+
+
+        self.logger.debug("当前非买点最新k线及ma值：")
         self.logger.info(first_line)
         return False
 
@@ -207,18 +221,32 @@ class TradingFunctions:
         date_stampe = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
         self.logger.info(date_stampe+" 当前最新价格："+current_price)
 
-        if self.judge_gain(current_price):
-            date_stampe = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
-            self.logger.info(date_stampe+" 当前达到止盈点3%："+current_price)
-            return current_price
-
+        ## 根据均线值计算卖点
         stock_data = pd.read_csv(self.MaFilePath, parse_dates=True, index_col=0)
         first_line = stock_data.to_dict('record')[0]
         if float(first_line['low']) < float(first_line['Ma5']) or float(first_line['high']) > float(
                 first_line['Ma5']) * 1.15:
-            self.logger.info("当前卖点k线及ma值：")
-            self.logger.info(first_line)
-            return "ma_sell"
+            if self.judge_gain(current_price):
+                self.logger.info("当前卖点k线及ma值：")
+                self.logger.info(first_line)
+                return "ma_sell"
+
+        ## 根据止盈值来判断卖点
+        if self.judge_gain(current_price):
+            date_stampe = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
+            self.logger.info("{0} 当前达到止盈点：{1}".format(date_stampe, current_price))
+            # self.logger.info("{0} 当前达到止盈点{1}：{2}".format(date_stampe, self.GainRate,current_price))
+            return current_price
+
+        ## 根据均线的角度来判断卖点
+        second_line = stock_data.to_dict('record')[1]
+        angle = float(self.calc_angle(0, float(first_line['Ma5']), 1, float(second_line['Ma5'])))
+        if angle >= 0 :
+            return "unok"
+        if angle <= -60:
+            self.logger.info("K线出现拐点："+current_price)
+            return current_price
+
         self.logger.info("当前非卖点最新k线及ma值：")
         self.logger.info(first_line)
         return "unok"
@@ -235,7 +263,7 @@ class TradingFunctions:
 
         self.__EosNumber = before_eos - self.sell_eos_amount
         self.__UsdtNumber = before_usdt + self.HedgeFunds - self.sell_cost
-        date_stampe = time.strftime('%Y-%m-%d %H%:%M', time.localtime(time.time()))
+        date_stampe = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
 
         # headers = ['date',  'business',  'before_eos', 'before_usdt', 'sell_eos_amount',
         #            'sell_price',  'cost', 'after_eos', 'after_usdt']
@@ -259,17 +287,17 @@ class TradingFunctions:
         return "sell_orderNumber"
 
     def sell_current_price(self, current_price):
-        self.sell_price = current_price * 0.998
+        self.sell_price = float(current_price) * 0.998
         self.sell_eos_amount = float(self.HedgeFunds / self.sell_price)
         self.sell_cost = self.HedgeFunds * 0.002
-        before_eos = self.__EosNumbe
+        before_eos = self.__EosNumber
         before_usdt = self.__UsdtNumber
 
         # sell_res = self.gate_trade.sell(self.Currency, eos_price, eos_amount)
 
-        self.__EosNumber = before_eos - self.sell_eos_amount
-        self.__UsdtNumber = before_usdt + self.HedgeFunds - self.sell_cost
-        date_stampe = time.strftime('%Y-%m-%d %H%:%M', time.localtime(time.time()))
+        self.__EosNumber = float(before_eos) - float(self.sell_eos_amount)
+        self.__UsdtNumber = float(before_usdt) + float(self.HedgeFunds) - float(self.sell_cost)
+        date_stampe = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
 
         # headers = ['date', 'business', 'before_eos', 'before_usdt', 'sell_eos_amount',
         #            'sell_price', 'cost', 'after_eos', 'after_usdt']
@@ -316,12 +344,65 @@ class TradingFunctions:
         return all_gain - all_cost
 
     def judge_gain(self, current_price):
-        all_cost = float(self.buy_cost) * float(self.buy_price) + self.HedgeFunds*0.002
+        stock_data = pd.read_csv(self.BusinessFilePath, parse_dates=True, index_col=0)
+        i = -1
+        last_line = stock_data.to_dict('record')[i]
+        while last_line['business'] != "Buy":
+            i = i-1
+            last_line = stock_data.to_dict('record')[i]
+        self.buy_cost = last_line['cost'] # 注意此时单位已经是USDT
+        self.buy_price = last_line['price']
+        self.buy_eos_amount = last_line['buy_eos_amount']
+
+        all_cost = float(self.buy_cost) + self.HedgeFunds*0.002
         tmp_sell_eos_amount = float(float(self.HedgeFunds) / float(current_price))
         all_gain = float(float(self.buy_eos_amount) - tmp_sell_eos_amount) * float(current_price)
-        gain_cal = float((float(current_price) - float(self.buy_price)) / float(self.buy_price))
-        if all_cost < all_gain and  gain_cal > float(self.GainRate):
-            self.logger.info("当前的赢利点："+str(gain_cal))
+        gain_rate = float((float(current_price) - float(self.buy_price)) / float(self.buy_price))
+        if all_cost < all_gain and  gain_rate > float(self.GainRate):
+            self.logger.info("【卖点】当前的赢利点有{0}，大于止盈点{1}：".format(str(gain_rate),str(self.GainRate)))
             return True
-        self.logger.info("当前的赢利点只有：" + str(gain_cal)+ "，不交易。")
+        self.logger.info("之前的买入价格{0}，买入EOS数量{1}，手续费成本{2} USDT，总价{3} USDT".format(self.buy_price,self.buy_eos_amount,self.buy_cost,self.HedgeFunds))
+        self.logger.info("当前的卖出单价{0}，卖出EOS数量{1}，手续费成本{2} USDT，总价{3} USDT。".format(current_price,tmp_sell_eos_amount,self.HedgeFunds*0.002,self.HedgeFunds))
+        # self.logger.info("当前的净利润EOS是{0}，成本是{1}，净收益USDT是{2}。".format(float(float(self.buy_eos_amount) - tmp_sell_eos_amount),
+        #                                                                  str(all_cost),str(all_gain-all_cost)))
+        if float(all_gain-all_cost) > 10:
+            self.logger.info(
+                "【低收益卖点】当前的净利润EOS是{0}，成本是{1}，净收益USDT是{2}，收益为正值超过10 USDT。".format(float(float(self.buy_eos_amount) - tmp_sell_eos_amount),
+                                                           str(all_cost), str(all_gain - all_cost)))
+            return True
+        self.logger.info("净收益{0} USDT，收益为负或者过低，不交易：".format(str(all_gain - all_cost)))
         return False
+
+    def get_buy_flag(self):
+        with open('buy_flag', 'r') as f:
+            res = f.read()
+            print("是否买入过：" + res)
+        return eval(res)
+
+
+    def set_buy_flag(self, value):
+        with open('buy_flag', 'w') as b_f:
+            b_f.write(value + "\r\n")
+
+    def get_sell_flag(self):
+        with open('sell_flag', 'r') as t:
+            res = t.read()
+            print("是否卖出过：" + res)
+        return eval(res)
+
+
+    def set_sell_flag(self, value):
+        with open('sell_flag', 'w') as s_f:
+            s_f.write(value + "\r\n")
+
+    def calc_angle(self, x_point_s, y_point_s, x_point_e, y_point_e):
+        angle = 0
+        y_se = y_point_e - y_point_s;
+        x_se = x_point_e - x_point_s;
+        if y_se == 0:
+            angle = 0
+        elif y_se > 0:
+            angle = 90 - (math.atan(x_se / y_se) * 180 / math.pi)
+        else:
+            angle = -((math.atan(x_se / y_se) * 180 / math.pi) + 90)
+        return angle

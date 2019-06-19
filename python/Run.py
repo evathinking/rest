@@ -14,14 +14,11 @@ from Commons import TradingFunctions
 
 if __name__ == '__main__':
 
-    __buy_flag = False
-    __sell_flag = False
-    __gain_flag = False
     __during = 10
     __cycle = 900
     __ma = 5
     __currency = "eos_usdt"
-    __hedge_funds = 100
+    __hedge_funds = 500
     __gain_rate = 0.03
 
     tc = TradingFunctions(Currency=__currency,
@@ -29,6 +26,9 @@ if __name__ == '__main__':
                           Ma=__ma,
                           HedgeFunds=__hedge_funds,
                           GainRate=__gain_rate)
+    __buy_flag = tc.get_buy_flag()
+    __sell_flag = tc.get_sell_flag()
+
     for i in range(0, 100):
         while __buy_flag is False:
             buy = tc.buy_point()
@@ -36,6 +36,8 @@ if __name__ == '__main__':
                 order_num = tc.buy()
                 while tc.get_order_status(order_num) != "closed":
                     time.sleep(120)
+                tc.set_buy_flag("True")
+                tc.set_sell_flag("False")
                 __buy_flag = True
                 __sell_flag = False
                 break
@@ -48,6 +50,8 @@ if __name__ == '__main__':
                 order_num = tc.sell_ma_price()
                 while tc.get_order_status(order_num) != "closed":
                     time.sleep(120)
+                tc.set_buy_flag("False")
+                tc.set_sell_flag("True")
                 __buy_flag = False
                 __sell_flag = True
                 break
@@ -58,6 +62,8 @@ if __name__ == '__main__':
                 order_num = tc.sell_current_price(sell)
                 while tc.get_order_status(order_num) != "closed":
                     time.sleep(120)
+                tc.set_buy_flag("False")
+                tc.set_sell_flag("True")
                 __buy_flag = False
                 __sell_flag = True
                 break
