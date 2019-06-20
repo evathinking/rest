@@ -10,19 +10,36 @@ from gateAPI import GateIO
 from Commons import TradingFunctions
 import math
 
-def calc_angle(x_point_s, y_point_s, x_point_e, y_point_e):
-    angle = 0
-    y_se = y_point_e - y_point_s;
-    x_se = x_point_e - x_point_s;
-    if y_se == 0:
-        angle = 0
-    elif y_se > 0:
-        angle = 90 - (math.atan(x_se / y_se) * 180 / math.pi)
-    else:
-        angle = -((math.atan(x_se / y_se) * 180 / math.pi)+90)
-    return angle
+__during = 10
+__cycle = 300
+__ma = 5
+__currency = "eos_usdt"
+__hedge_funds = 500
+__gain_rate = 0.03
 
-print(calc_angle(x_point_s=0,y_point_s=6.8851,x_point_e=1,y_point_e=3.4))
+tc = TradingFunctions(Currency=__currency,
+                      Cycle=__cycle,
+                      Ma=__ma,
+                      HedgeFunds=__hedge_funds,
+                      GainRate=__gain_rate)
+
+tc.write_kdata_into_csv(tc.get_gateio_kdata())
+tc.self.caculate_ma_kdj()
+
+#
+# def calc_angle(x_point_s, y_point_s, x_point_e, y_point_e):
+#     angle = 0
+#     y_se = y_point_e - y_point_s;
+#     x_se = x_point_e - x_point_s;
+#     if y_se == 0:
+#         angle = 0
+#     elif y_se > 0:
+#         angle = math.atan(y_se / x_se) * 180 / math.pi
+#     else:
+#         angle = -((math.atan(y_se / x_se) * 180 / math.pi)+90)
+#     return angle
+#
+# print(calc_angle(x_point_s=0,y_point_s=6.83908,x_point_e=1,y_point_e=6.8499))
 # Trading Pairs
 # 返回所有系统支持的交易对
 #     eth_btc: 以太币对比特币交易

@@ -15,7 +15,7 @@ from Commons import TradingFunctions
 if __name__ == '__main__':
 
     __during = 10
-    __cycle = 900
+    __cycle = 300
     __ma = 5
     __currency = "eos_usdt"
     __hedge_funds = 500
@@ -33,9 +33,7 @@ if __name__ == '__main__':
         while __buy_flag is False:
             buy = tc.buy_point()
             if buy:
-                order_num = tc.buy()
-                while tc.get_order_status(order_num) != "closed":
-                    time.sleep(120)
+                tc.buy()
                 tc.set_buy_flag("True")
                 tc.set_sell_flag("False")
                 __buy_flag = True
@@ -46,25 +44,15 @@ if __name__ == '__main__':
                 continue
         while __buy_flag is True and __sell_flag is False:
             sell = tc.sell_point()
-            if sell == "ma_sell":
-                order_num = tc.sell_ma_price()
-                while tc.get_order_status(order_num) != "closed":
-                    time.sleep(120)
+            if sell:
+                tc.sell()
                 tc.set_buy_flag("False")
                 tc.set_sell_flag("True")
                 __buy_flag = False
                 __sell_flag = True
                 break
-            elif sell == "unok":
+            else:
                 time.sleep(__during)
                 continue
-            else:
-                order_num = tc.sell_current_price(sell)
-                while tc.get_order_status(order_num) != "closed":
-                    time.sleep(120)
-                tc.set_buy_flag("False")
-                tc.set_sell_flag("True")
-                __buy_flag = False
-                __sell_flag = True
-                break
+
 

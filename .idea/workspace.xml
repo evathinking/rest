@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0991b173-dcf6-4c3f-a578-50a92ab60da8" name="Default" comment="version1">
-      <change afterPath="$PROJECT_DIR$/python/buy_flag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python/sell_flag" afterDir="false" />
+    <list default="true" id="0991b173-dcf6-4c3f-a578-50a92ab60da8" name="Default" comment="version1.1">
+      <change afterPath="$PROJECT_DIR$/python/start.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python/Business.csv" beforeDir="false" afterPath="$PROJECT_DIR$/python/Business.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python/Client.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/Client.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python/Commons.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/Commons.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/HttpUtil.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/HttpUtil.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python/Ma_Value.csv" beforeDir="false" afterPath="$PROJECT_DIR$/python/Ma_Value.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python/Run.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/Run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/buy_flag" beforeDir="false" afterPath="$PROJECT_DIR$/python/buy_flag" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python/log.log" beforeDir="false" afterPath="$PROJECT_DIR$/python/log.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/sell_flag" beforeDir="false" afterPath="$PROJECT_DIR$/python/sell_flag" afterDir="false" />
     </list>
     <ignored path="Gateio.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,8 +37,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/python/Client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+            <state relative-caret-position="215">
+              <caret line="21" column="30" lean-forward="true" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
               <folding>
                 <element signature="e#123#149#0" expanded="true" />
               </folding>
@@ -47,7 +49,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/python/gateAPI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="86">
+            <state relative-caret-position="2050">
               <caret line="82" column="8" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="8" />
             </state>
           </provider>
@@ -56,9 +58,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/python/HttpUtil.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="-150">
+              <caret line="9" column="66" selection-start-line="9" selection-start-column="66" selection-end-line="9" selection-end-column="66" />
               <folding>
+                <element signature="e#43#61#0" expanded="true" />
                 <element signature="e#763#1260#0" />
               </folding>
             </state>
@@ -68,28 +71,53 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/python/Commons.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="708">
-              <caret line="155" column="41" selection-start-line="155" selection-start-column="41" selection-end-line="155" selection-end-column="41" />
+            <state relative-caret-position="84">
+              <caret line="390" column="31" lean-forward="true" selection-start-line="390" selection-start-column="31" selection-end-line="390" selection-end-column="31" />
               <folding>
                 <element signature="n#!!doc" />
                 <element signature="e#43#176#1" />
                 <element signature="e#177#187#0" expanded="true" />
-                <element signature="e#8206#9510#0" />
-                <element signature="e#9569#10884#0" />
-                <element signature="e#10939#11043#0" />
+                <marker date="1561009093208" expanded="true" signature="5358:5762" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/python/start.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="86">
+              <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://C:/Python37/Lib/site-packages/pandas/io/parsers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="121">
+              <caret line="602" selection-start-line="602" selection-end-line="602" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/python/Run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="18" column="12" lean-forward="true" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+            <state relative-caret-position="1200">
+              <caret line="48" column="40" lean-forward="true" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
               <folding>
                 <element signature="e#173#184#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://C:/Python37/Lib/codecs.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="121">
+              <caret line="309" selection-start-line="309" selection-end-line="309" />
             </state>
           </provider>
         </entry>
@@ -110,8 +138,10 @@
       <find>logging.info</find>
       <find>logger.</find>
       <find>17:01</find>
-      <find>__gain_flag</find>
       <find>caculate_ma</find>
+      <find>debug</find>
+      <find>不卖出</find>
+      <find>__gain_flag</find>
     </findStrings>
     <replaceStrings>
       <replace>logger.info</replace>
@@ -126,13 +156,15 @@
       <list>
         <option value="$PROJECT_DIR$/Constant.py" />
         <option value="$PROJECT_DIR$/python/Constant.py" />
-        <option value="$PROJECT_DIR$/python/HttpUtil.py" />
         <option value="$PROJECT_DIR$/python/gateAPI.py" />
         <option value="$PROJECT_DIR$/python/sell_flag" />
-        <option value="$PROJECT_DIR$/python/Client.py" />
-        <option value="$PROJECT_DIR$/python/buy_flag" />
-        <option value="$PROJECT_DIR$/python/Commons.py" />
+        <option value="$PROJECT_DIR$/python/log.log" />
+        <option value="$PROJECT_DIR$/python/HttpUtil.py" />
         <option value="$PROJECT_DIR$/python/Run.py" />
+        <option value="$PROJECT_DIR$/python/Client.py" />
+        <option value="$PROJECT_DIR$/python/Commons.py" />
+        <option value="$PROJECT_DIR$/python/buy_flag" />
+        <option value="$PROJECT_DIR$/python/start.sh" />
       </list>
     </option>
   </component>
@@ -143,10 +175,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-45" />
-    <option name="y" value="313" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="x" value="-17" />
+    <option name="y" value="335" />
+    <option name="width" value="1364" />
+    <option name="height" value="726" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -465,20 +497,26 @@
       <option name="project" value="LOCAL" />
       <updated>1560922361455</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="version1.1">
+      <created>1560950293975</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1560950293976</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18080357" />
-      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14732143" />
+      <window_info id="Structure" order="1" weight="0.05282738" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4985119" visible="true" weight="0.26350245" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.28477904" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4985119" visible="true" weight="0.5433715" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3453355" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -502,45 +540,31 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="version1" />
-    <option name="LAST_COMMIT_MESSAGE" value="version1" />
+    <MESSAGE value="version1.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="version1.1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/python/Commons.py</url>
-          <line>28</line>
-          <option name="timeStamp" value="38" />
+          <line>194</line>
+          <option name="timeStamp" value="73" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/python/Run.py</url>
-          <line>46</line>
-          <option name="timeStamp" value="52" />
+          <url>file://$PROJECT_DIR$/python/Client.py</url>
+          <line>25</line>
+          <option name="timeStamp" value="74" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/python/Commons.py</url>
-          <line>242</line>
-          <option name="timeStamp" value="53" />
+          <line>176</line>
+          <option name="timeStamp" value="79" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/python/Run.py</url>
-          <line>61</line>
-          <option name="timeStamp" value="55" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/python/Run.py</url>
-          <line>39</line>
-          <option name="timeStamp" value="57" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/python/Run.py</url>
-          <line>38</line>
-          <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/python/Run.py</url>
-          <line>32</line>
-          <option name="timeStamp" value="61" />
+          <url>file://$PROJECT_DIR$/python/Commons.py</url>
+          <line>183</line>
+          <option name="timeStamp" value="80" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -553,16 +577,28 @@
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="-((math.atan(x_se / y_se) * 180 / math.pi)+90)" language="Python" />
-        <watch expression="tc.get_buy_flag()" language="Python" />
-        <watch expression="tc.get_sell_flag()" language="Python" />
-        <watch expression="bool(t.read().strip())" language="Python" />
-        <watch expression="eval(res)" language="Python" />
+        <watch expression="stock_data['k'].shift(-12)" language="Python" />
+        <watch expression="angle &lt;= -65" language="Python" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>angle &lt;= -65</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>angle &lt;= -65 and float(first_line['k']) &gt; 75</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>stock_data['k'].shift(-12)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>eval(res)</expression-string>
         <language-id>Python</language-id>
@@ -598,21 +634,6 @@
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>-180+(math.atan(x_se / y_se) * 180 / math.pi)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>(math.atan(x_se / y_se) * 180 / math.pi)-90</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>(math.atan(x_se / y_se) * 180 / math.pi)+90</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
@@ -633,13 +654,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/python/gateAPI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="82" column="8" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python37/Lib/http/client.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -647,25 +661,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/python/HttpUtil.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="e#763#1260#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/python/log.txt">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/python/log.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2850">
-          <caret line="6" column="51" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://C:/Python37/Lib/json/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -681,10 +678,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://C:/Python37/Lib/site-packages/pandas/io/parsers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="602" selection-start-line="602" selection-end-line="602" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python37/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="309" selection-start-line="309" selection-end-line="309" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python/log.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python/gateAPI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2050">
+          <caret line="82" column="8" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/python/sell_flag">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret selection-end-column="5" />
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python/Client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="21" column="30" lean-forward="true" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+          <folding>
+            <element signature="e#123#149#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python/HttpUtil.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-150">
+          <caret line="9" column="66" selection-start-line="9" selection-start-column="66" selection-end-line="9" selection-end-column="66" />
+          <folding>
+            <element signature="e#43#61#0" expanded="true" />
+            <element signature="e#763#1260#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -697,36 +739,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/python/Commons.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="708">
-          <caret line="155" column="41" selection-start-line="155" selection-start-column="41" selection-end-line="155" selection-end-column="41" />
+        <state relative-caret-position="84">
+          <caret line="390" column="31" lean-forward="true" selection-start-line="390" selection-start-column="31" selection-end-line="390" selection-end-column="31" />
           <folding>
             <element signature="n#!!doc" />
             <element signature="e#43#176#1" />
             <element signature="e#177#187#0" expanded="true" />
-            <element signature="e#8206#9510#0" />
-            <element signature="e#9569#10884#0" />
-            <element signature="e#10939#11043#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/python/Client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
-          <folding>
-            <element signature="e#123#149#0" expanded="true" />
+            <marker date="1561009093208" expanded="true" signature="5358:5762" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/python/Run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="18" column="12" lean-forward="true" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+        <state relative-caret-position="1200">
+          <caret line="48" column="40" lean-forward="true" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
           <folding>
             <element signature="e#173#184#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python/start.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
         </state>
       </provider>
     </entry>
