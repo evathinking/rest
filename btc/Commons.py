@@ -22,13 +22,13 @@ from gateAPI import GateIO
 
 class TradingFunctions:
 
-    def __init__(self, Currency, Cycle, Ma, HedgeFunds, GainRate, LowIncome ,TargetDir):
+    def __init__(self, Currency, Cycle, Ma, HedgeFunds, GainRate, LowIncome):
 
         logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
         self.logger = logging.getLogger(__name__)
-        self.TargetDir = TargetDir
+
         # self.logger.addHandler(logging.StreamHandler(sys.stdout))
-        self.logger.addHandler(logging.FileHandler(filename=self.TargetDir+r'/log.log', encoding='utf-8'))
+        self.logger.addHandler(logging.FileHandler(filename='log.log', encoding='utf-8'))
         ## 填写 apiKey APISECRET
         apiKey = '02542CE3-4E60-4BDE-B5E2-1962112A14AE'
         secretKey = '96472f3bf7d53a26286cb0410a0adabed57bd133d407d5116251a9d309a0ad64'
@@ -43,27 +43,29 @@ class TradingFunctions:
 
         self.balances = json.loads(self.gate_trade.balances())
         self.__UsdtNumber = self.balances['available']['USDT']
-        self.__EosNumber = self.balances['available']['EOS']
+        self.__CoinNumber = self.balances['available']['BTC']
 
-        self.logger.info("初始资金，EOS:{0}, USDT:{1}".format(self.__EosNumber, self.__UsdtNumber))
+        self.logger.info("初始资金，EOS:{0}, USDT:{1}".format(self.__CoinNumber, self.__UsdtNumber))
 
         # # 测试数据
         # self.__UsdtNumber = 3500
-        # self.__EosNumber = 0
+        # self.__CoinNumber = 0
 
         ## 交易基础数据
-        self.MaFilePath = self.TargetDir+r"/Ma_Value.csv"  # k线以及ma值存放数据表格
-        self.BusinessFilePath = self.TargetDir+r"/Business.csv"  # 交易数据表格
+        self.MaFilePath = "Ma_Value.csv"  # k线以及ma值存放数据表格
+        self.BusinessFilePath = "Business.csv"  # 交易数据表格
         self.Currency = Currency  # 交易对
         self.Cycle = Cycle  # K线周期
         self.Ma = Ma  # 移动均值
         self.GainRate = GainRate  # 止盈点
         self.LowIncome = LowIncome
 
-        if float(HedgeFunds) > float(self.__UsdtNumber) or float(HedgeFunds) <= 1:
-            raise Exception("invalid hedge funds，insufficient usdt or too small hedge funds.")
+        if self.get_buy_flag() is False:
+            if float(HedgeFunds) > float(self.__UsdtNumber) or float(HedgeFunds) <= 1:
+                raise Exception("invalid hedge funds，insufficient usdt or too small hedge funds.")
         else:
             self.HedgeFunds = float(HedgeFunds)  # 对冲USDT数量
+
 
     def Write_json(self, file, json):
         # 写入本地json文件
@@ -183,7 +185,7 @@ class TradingFunctions:
         # self.buy_price = self.get_depth_buy_price()
         self.buy_eos_amount = float(self.HedgeFunds / self.buy_price)
         self.buy_cost = self.buy_eos_amount * 0.002 * self.buy_price
-        before_eos = self.__EosNumber
+        before_eos = self.__CoinNumber
         before_usdt = self.__UsdtNumber
 
         buy_res = json.loads(self.gate_trade.buy(self.Currency, self.buy_price, self.buy_eos_amount))
@@ -198,9 +200,9 @@ class TradingFunctions:
 
         self.balances = json.loads(self.gate_trade.balances())
         self.__UsdtNumber = self.balances['available']['USDT']
-        self.__EosNumber = self.balances['available']['EOS']
+        self.__CoinNumber = self.balances['available']['EOS']
 
-        # self.__EosNumber =float(before_eos) + float(self.buy_eos_amount) - float(self.buy_cost)
+        # self.__CoinNumber =float(before_eos) + float(self.buy_eos_amount) - float(self.buy_cost)
         # self.__UsdtNumber = float(before_usdt) - float(self.HedgeFunds)
         date_stampe = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
         row = [date_stampe,
@@ -210,7 +212,7 @@ class TradingFunctions:
                self.buy_eos_amount,
                self.buy_price,
                self.buy_cost,
-               self.__EosNumber,
+               self.__CoinNumber,
                self.__UsdtNumber]
         self.logger.info(row)
         with open(self.BusinessFilePath, 'a+', newline='')as f:
@@ -269,7 +271,7 @@ class TradingFunctions:
         # self.sell_price = self.get_depth_sell_price()
         self.sell_eos_amount = float(self.HedgeFunds / self.sell_price)
         self.sell_cost = self.HedgeFunds * 0.002
-        before_eos = self.__EosNumber
+        before_eos = self.__CoinNumber
         before_usdt = self.__UsdtNumber
 
         sell_res = json.loads(self.gate_trade.sell(self.Currency, self.sell_price, self.sell_eos_amount))
@@ -284,9 +286,9 @@ class TradingFunctions:
 
         self.balances = json.loads(self.gate_trade.balances())
         self.__UsdtNumber = self.balances['available']['USDT']
-        self.__EosNumber = self.balances['available']['EOS']
+        self.__CoinNumber = self.balances['available']['EOS']
 
-        # self.__EosNumber = before_eos - self.sell_eos_amount
+        # self.__CoinNumber = before_eos - self.sell_eos_amount
         # self.__UsdtNumber = before_usdt + self.HedgeFunds - self.sell_cost
 
         date_stampe = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
@@ -297,7 +299,7 @@ class TradingFunctions:
                self.sell_eos_amount,
                self.sell_price,
                self.sell_cost,
-               self.__EosNumber,
+               self.__CoinNumber,
                self.__UsdtNumber]
         self.logger.info(row)
         with open(self.BusinessFilePath, 'a+', newline='')as f:
@@ -312,12 +314,12 @@ class TradingFunctions:
         self.sell_price = float(current_price) * 0.998
         self.sell_eos_amount = float(self.HedgeFunds / self.sell_price)
         self.sell_cost = self.HedgeFunds * 0.002
-        before_eos = self.__EosNumber
+        before_eos = self.__CoinNumber
         before_usdt = self.__UsdtNumber
 
         # sell_res = self.gate_trade.sell(self.Currency, eos_price, eos_amount)
 
-        self.__EosNumber = float(before_eos) - float(self.sell_eos_amount)
+        self.__CoinNumber = float(before_eos) - float(self.sell_eos_amount)
         self.__UsdtNumber = float(before_usdt) + float(self.HedgeFunds) - float(self.sell_cost)
         date_stampe = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
 
@@ -330,7 +332,7 @@ class TradingFunctions:
                self.sell_eos_amount,
                self.sell_price,
                self.sell_cost,
-               self.__EosNumber,
+               self.__CoinNumber,
                self.__UsdtNumber]
         self.logger.info(row)
         with open(self.BusinessFilePath, 'a+', newline='')as f:
@@ -409,23 +411,23 @@ class TradingFunctions:
         return "unok"
 
     def get_buy_flag(self):
-        with open(self.TargetDir+r'/buy_flag', 'r') as f:
+        with open('buy_flag', 'r') as f:
             res = f.read()
             print("是否买入过：" + res)
         return eval(res)
 
     def set_buy_flag(self, value):
-        with open(self.TargetDir+r'/buy_flag', 'w') as b_f:
+        with open('buy_flag', 'w') as b_f:
             b_f.write(value + "\r\n")
 
     def get_sell_flag(self):
-        with open(self.TargetDir+r'/sell_flag', 'r') as t:
+        with open('sell_flag', 'r') as t:
             res = t.read()
             print("是否卖出过：" + res)
         return eval(res)
 
     def set_sell_flag(self, value):
-        with open(self.TargetDir+r'/sell_flag', 'w') as s_f:
+        with open('sell_flag', 'w') as s_f:
             s_f.write(value + "\r\n")
 
     def calc_angle(self, x_point_s, y_point_s, x_point_e, y_point_e):

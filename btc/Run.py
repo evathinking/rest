@@ -17,13 +17,12 @@ from Commons import TradingFunctions
 if __name__ == '__main__':
 
     __during = 10
-    __cycle = 300
+    __cycle = 900
     __ma = 5
     __currency = "btc_usdt"
     __hedge_funds = 2500
     __gain_rate = 0.03
-    __low_income = 40
-    __target_dir = sys.path[0]
+    __low_income = 25
 
 
     tc = TradingFunctions(Currency=__currency,
@@ -31,8 +30,7 @@ if __name__ == '__main__':
                           Ma=__ma,
                           HedgeFunds=__hedge_funds,
                           GainRate=__gain_rate,
-                          LowIncome=__low_income,
-                          TargetDir = __target_dir)
+                          LowIncome=__low_income)
     __buy_flag = tc.get_buy_flag()
     __sell_flag = tc.get_sell_flag()
 

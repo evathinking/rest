@@ -16,21 +16,19 @@ from Commons import TradingFunctions
 if __name__ == '__main__':
 
     __during = 10
-    __cycle = 300
+    __cycle = 900
     __ma = 5
     __currency = "eos_usdt"
-    __hedge_funds = 500
+    __hedge_funds = 1000
     __gain_rate = 0.03
-    __low_income = 10
-    __target_dir = sys.path[0]
+    __low_income = 18
 
     tc = TradingFunctions(Currency=__currency,
                           Cycle=__cycle,
                           Ma=__ma,
                           HedgeFunds=__hedge_funds,
                           GainRate=__gain_rate,
-                          LowIncome=__low_income,
-                          TargetDir=__target_dir)
+                          LowIncome=__low_income)
     __buy_flag = tc.get_buy_flag()
     __sell_flag = tc.get_sell_flag()
 
