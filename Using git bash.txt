@@ -1,0 +1,5 @@
+/etc/init.d/cron start
+/etc/init.d/cron stop
+ps -ef|grep Run.py|grep -v grep|cut -c 9-15|sudo xargs kill -9
+
+ps -ef | grep Run.py

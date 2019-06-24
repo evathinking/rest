@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/eos
 # -*- coding: utf-8 -*-
 
 """
@@ -10,14 +10,12 @@
         华为技术有限公司，版权所有(C) 2019-2020
 """
 import csv
-import time, datetime
+import time
 import json
-import os, sys
 import logging
 import math
 import pandas as pd
-import numpy as np
-from gateAPI import GateIO
+from pub.gateAPI import GateIO
 
 
 class TradingFunctions:
@@ -41,11 +39,13 @@ class TradingFunctions:
         self.gate_query = GateIO(API_QUERY_URL, apiKey, secretKey)
         self.gate_trade = GateIO(API_TRADE_URL, apiKey, secretKey)
 
+        self.COIN_1 = Currency.split("_")[1].upper()
+        self.COIN_2 = Currency.split("_")[0].upper()
         self.balances = json.loads(self.gate_trade.balances())
-        self.__UsdtNumber = self.balances['available']['USDT']
-        self.__CoinNumber = self.balances['available']['BTC']
+        self.__UsdtNumber = self.balances['available'][self.COIN_1]
+        self.__CoinNumber = self.balances['available'][self.COIN_2]
 
-        self.logger.info("初始资金，EOS:{0}, USDT:{1}".format(self.__CoinNumber, self.__UsdtNumber))
+        self.logger.info("初始资金，{0}:{1}, {2}:{3}".format(self.COIN_2, self.__CoinNumber, self.COIN_1, self.__UsdtNumber))
 
         # # 测试数据
         # self.__UsdtNumber = 3500
@@ -63,6 +63,8 @@ class TradingFunctions:
         if self.get_buy_flag() is False:
             if float(HedgeFunds) > float(self.__UsdtNumber) or float(HedgeFunds) <= 1:
                 raise Exception("invalid hedge funds，insufficient usdt or too small hedge funds.")
+            else:
+                self.HedgeFunds = float(HedgeFunds)
         else:
             self.HedgeFunds = float(HedgeFunds)  # 对冲USDT数量
 
@@ -193,14 +195,14 @@ class TradingFunctions:
         buy_status = json.loads(self.gate_trade.getOrder(buy_res['orderNumber'], self.Currency))
         buy_his = json.loads(self.gate_trade.mytradeHistory(self.Currency, buy_res['orderNumber']))
         while len(buy_his['trades']) == 0:
-            self.logger.info("当前深度最大买单价{0},{1},{2} 还没买到。".format(buy_res['orderNumber'], buy_status['order']['status'],
+            self.logger.info("当前买单价{0},{1},{2} 还没买到。".format(buy_res['orderNumber'], buy_status['order']['status'],
                                                                  self.buy_price))
             time.sleep(60)
             buy_his = json.loads(self.gate_trade.mytradeHistory(self.Currency, buy_res['orderNumber']))
 
         self.balances = json.loads(self.gate_trade.balances())
-        self.__UsdtNumber = self.balances['available']['USDT']
-        self.__CoinNumber = self.balances['available']['EOS']
+        self.__UsdtNumber = self.balances['available'][self.COIN_1]
+        self.__CoinNumber = self.balances['available'][self.COIN_2]
 
         # self.__CoinNumber =float(before_eos) + float(self.buy_eos_amount) - float(self.buy_cost)
         # self.__UsdtNumber = float(before_usdt) - float(self.HedgeFunds)
@@ -234,35 +236,34 @@ class TradingFunctions:
         second_line = stock_data.to_dict('record')[1]
         angle = float(self.calc_angle(0, float(second_line['Ma5']), 1, float(first_line['Ma5'])))
         judge_gain = self.judge_gain(current_price)
-        # 均线最高价超过15，卖出
-        if float(first_line['high']) > float(first_line['Ma5']) * 1.15:
-            self.logger.info("{0} 最高价超过均线15%,当前价格{1}可以卖出。".format(date_stamp, current_price))
+
+
+        # 当前价格高出Ma5超过8%，卖出
+        if float(current_price) > float(first_line['Ma5']) * 1.08:
+            self.logger.info("【卖点1】最高价超过均线8%,当前价格{1}可以卖出。".format(date_stamp, current_price))
             return True
 
-        ## 止盈点,但角度有上扬,如果kdj没超过75，继续持有,超过就卖出
+        ## 价格止盈点
         if judge_gain == "price_gain":
-            if angle >= 0:
-                self.logger.info("{0} 当前达到止盈点,但角度有上扬,当前价格{1}继续持有。".format(date_stamp, current_price))
-                return False
-            else:
-                self.logger.info("{0} 当前达到止盈点,当前价格{1}可以卖出。".format(date_stamp, current_price))
-                return True
+            self.logger.info("【卖点2】超过设定买价的止盈值。")
+            return True
 
-
+        # 这里把最低收益纳入，避免出现死叉过于敏感
+        if float(first_line['Ma10']) > float(first_line['Ma5']) and float(second_line['Ma10']) < float(
+                second_line['Ma5']) and judge_gain == "lowest_income":
+            self.logger.info("【卖点2】{0}死叉出现，且达到最低收益{1}。".format(date_stamp, current_price))
+            return True
 
         # 如果只是低于均线， 止盈点到了就卖 角度上扬持有 角度下斜15度，卖出 最低低于均线超过8，卖出
         if float(first_line['low']) < float(first_line['Ma5']):
             if angle >= 0:
-                self.logger.info("{0} 如果只是低于均线，但均线角度持平或者上扬，继续持有，当前价格{1}可以不卖出。".format(angle, current_price))
+                self.logger.info("{0} 最低价低于均线，但角度上扬，可继续持有，当前价格{1}可以不卖出。".format(angle, current_price))
                 return False
+            # 跑在死叉之前
             if judge_gain == "lowest_income":
                 self.logger.info("{0} 低于均线，最低收益已达到，当前价格{1}可以卖出。".format(date_stamp, current_price))
                 return True
-            # 这里把最低收益纳入，避免出现死叉过于敏感
-            if float(first_line['Ma10']) > float(first_line['Ma5']) and float(second_line['Ma10']) < float(
-                    second_line['Ma5']) and judge_gain == "lowest_income":
-                self.logger.info("{0}死叉出现，且达到最低收益{1}。".format(date_stamp, current_price))
-                return True
+
         return False
 
     def sell(self):
@@ -285,8 +286,8 @@ class TradingFunctions:
             sell_his = json.loads(self.gate_trade.mytradeHistory(self.Currency, sell_res['orderNumber']))
 
         self.balances = json.loads(self.gate_trade.balances())
-        self.__UsdtNumber = self.balances['available']['USDT']
-        self.__CoinNumber = self.balances['available']['EOS']
+        self.__UsdtNumber = self.balances['available'][self.COIN_1]
+        self.__CoinNumber = self.balances['available'][self.COIN_2]
 
         # self.__CoinNumber = before_eos - self.sell_eos_amount
         # self.__UsdtNumber = before_usdt + self.HedgeFunds - self.sell_cost
@@ -383,31 +384,33 @@ class TradingFunctions:
         all_gain = float(float(self.buy_eos_amount) - tmp_sell_eos_amount) * float(current_price)
         gain_rate = float((float(current_price) - float(self.buy_price)) / float(self.buy_price))
         self.logger.info(
-            "之前的买入价格{0}，买入EOS数量{1}，手续费成本{2} USDT，总价{3} USDT".format(
+            "之前的买入价格{0}，买入{1}数量{2}，手续费成本{3} USDT，总价{4} USDT".format(
                 self.buy_price,
+                self.COIN_2,
                 self.buy_eos_amount,
                 self.buy_cost,
                 self.HedgeFunds))
-        self.logger.info("当前的卖出单价{0}，卖出EOS数量{1}，手续费成本{2} USDT，总价{3} USDT。".format(
+        self.logger.info("当前的卖出单价{0}，卖出{1}数量{2}，手续费成本{3} USDT，总价{4} USDT。".format(
             current_price,
+            self.COIN_2,
             tmp_sell_eos_amount,
             self.HedgeFunds * 0.002,
             self.HedgeFunds))
 
         if all_cost < all_gain and gain_rate > float(self.GainRate):
-            self.logger.info("【卖点】当前的赢利点有{0}，大于止盈点{1}：".format(str(gain_rate), str(self.GainRate)))
+            self.logger.info("【卖点】当前的赢利点超过买入价格{0}，大于止盈点{1}：".format(str(gain_rate), str(self.GainRate)))
             return "price_gain"
 
         if float(all_gain - all_cost) > self.LowIncome:
             self.logger.info(
-                "【低收益卖点】当前的净利润EOS是{0}，成本是{1}，净收益USDT是{2}，"
-                "收益为正值超过{3} USDT。".format(float(float(self.buy_eos_amount) - tmp_sell_eos_amount),
+                "【低收益卖点】当前的币的个数是{0}，成本是{1}，净收益USDT是{2}，收益为正值超过{3} USDT。"
+                    .format(float(float(self.buy_eos_amount) - tmp_sell_eos_amount),
                                           str(all_cost),
                                           str(all_gain - all_cost),
                                           self.LowIncome))
             return "lowest_income"
 
-        self.logger.info("净收益{0} USDT，收益为负或者过低，不交易：".format(str(all_gain - all_cost)))
+        self.logger.info("净收益{0} USDT，收益未到最低收益卖点，不交易：".format(str(all_gain - all_cost)))
         return "unok"
 
     def get_buy_flag(self):

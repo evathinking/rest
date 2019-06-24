@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/eos
 # -*- coding:utf-8 -*-
 """
     功    能:
@@ -10,8 +10,8 @@
 """
 import time
 import sys
-
-from Commons import TradingFunctions
+sys.path.append('..')
+from pub.Commons import TradingFunctions
 
 if __name__ == '__main__':
 
@@ -19,9 +19,9 @@ if __name__ == '__main__':
     __cycle = 900
     __ma = 5
     __currency = "eos_usdt"
-    __hedge_funds = 1000
+    __hedge_funds = 2500
     __gain_rate = 0.03
-    __low_income = 18
+    __low_income = 10
 
     tc = TradingFunctions(Currency=__currency,
                           Cycle=__cycle,

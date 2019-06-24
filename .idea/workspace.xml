@@ -1,32 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0991b173-dcf6-4c3f-a578-50a92ab60da8" name="Default" comment="version2">
-      <change afterPath="$PROJECT_DIR$/TA_Lib-0.4.17-cp37-cp37m-win32.whl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/btc/Client.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/btc/Commons.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/btc/HttpUtil.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/btc/Ma_Value.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/btc/Run.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/btc/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/btc/buy_flag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/btc/gateAPI.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/btc/log.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/btc/sell_flag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/btc/start.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python/a.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ta-lib-0.4.0-src.tar.gz" afterDir="false" />
+    <list default="true" id="0991b173-dcf6-4c3f-a578-50a92ab60da8" name="Default" comment="version3">
+      <change afterPath="$PROJECT_DIR$/pub/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Gateio.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Gateio.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/Business.csv" beforeDir="false" afterPath="$PROJECT_DIR$/python/Business.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/Commons.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/Commons.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/Ma_Value.csv" beforeDir="false" afterPath="$PROJECT_DIR$/python/Ma_Value.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/Run.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/Run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/buy_flag" beforeDir="false" afterPath="$PROJECT_DIR$/python/buy_flag" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/log.log" beforeDir="false" afterPath="$PROJECT_DIR$/python/log.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/python/start.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Using git bash.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Using git bash.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btc/Client.py" beforeDir="false" afterPath="$PROJECT_DIR$/pub/Client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btc/Commons.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btc/HttpUtil.py" beforeDir="false" afterPath="$PROJECT_DIR$/pub/HttpUtil.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btc/Ma_Value.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btc/Run.py" beforeDir="false" afterPath="$PROJECT_DIR$/btc/Run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btc/buy_flag" beforeDir="false" afterPath="$PROJECT_DIR$/btc/buy_flag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btc/gateAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/pub/gateAPI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btc/log.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btc/sell_flag" beforeDir="false" afterPath="$PROJECT_DIR$/btc/sell_flag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/Business.csv" beforeDir="false" afterPath="$PROJECT_DIR$/eos/Business.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/Client.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/Commons.py" beforeDir="false" afterPath="$PROJECT_DIR$/pub/Commons.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/HttpUtil.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/Ma_Value.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/Run.py" beforeDir="false" afterPath="$PROJECT_DIR$/eos/Run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/eos/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/a.sh" beforeDir="false" afterPath="$PROJECT_DIR$/eos/a.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/buy_flag" beforeDir="false" afterPath="$PROJECT_DIR$/eos/buy_flag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/gateAPI.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/log.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/sell_flag" beforeDir="false" afterPath="$PROJECT_DIR$/eos/sell_flag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/eos/start.sh" afterDir="false" />
     </list>
     <ignored path="Gateio.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,7 +49,41 @@
     <favorites_list name="Gateio" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/btc/Run.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+              <folding>
+                <element signature="e#170#181#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Using git bash.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eos/Run.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+              <folding>
+                <element signature="e#170#181#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -68,10 +104,13 @@
       <find>__gain_flag</find>
       <find>不卖出</find>
       <find>angle</find>
+      <find>self.TargetDir</find>
+      <find>__EosNumber</find>
     </findStrings>
     <replaceStrings>
       <replace>logger.info</replace>
       <replace>self.logger.</replace>
+      <replace>__CoinNumber</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -86,15 +125,21 @@
         <option value="$PROJECT_DIR$/python/log.log" />
         <option value="$PROJECT_DIR$/python/HttpUtil.py" />
         <option value="$PROJECT_DIR$/python/sell_flag" />
-        <option value="$PROJECT_DIR$/python/buy_flag" />
         <option value="$PROJECT_DIR$/python/Client.py" />
         <option value="$PROJECT_DIR$/btc/log.log" />
         <option value="$PROJECT_DIR$/btc/start.sh" />
         <option value="$PROJECT_DIR$/python/start.sh" />
-        <option value="$PROJECT_DIR$/btc/Commons.py" />
+        <option value="$PROJECT_DIR$/python/buy_flag" />
         <option value="$PROJECT_DIR$/python/Run.py" />
+        <option value="$PROJECT_DIR$/btc/Commons.py" />
         <option value="$PROJECT_DIR$/python/Commons.py" />
+        <option value="$PROJECT_DIR$/eos/Commons.py" />
+        <option value="$PROJECT_DIR$/eos/buy_flag" />
+        <option value="$PROJECT_DIR$/pub/Commons.py" />
+        <option value="$PROJECT_DIR$/eos/start.sh" />
+        <option value="$PROJECT_DIR$/eos/Run.py" />
         <option value="$PROJECT_DIR$/btc/Run.py" />
+        <option value="$PROJECT_DIR$/Using git bash.txt" />
       </list>
     </option>
   </component>
@@ -133,7 +178,12 @@
             <path>
               <item name="Gateio" type="b2602c69:ProjectViewProjectNode" />
               <item name="Gateio" type="462c0819:PsiDirectoryNode" />
-              <item name="python" type="462c0819:PsiDirectoryNode" />
+              <item name="eos" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Gateio" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Gateio" type="462c0819:PsiDirectoryNode" />
+              <item name="pub" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -150,6 +200,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\Gateio\pub" />
       <recent name="G:\Gateio\python" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -170,7 +221,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Run">
+  <component name="RunManager" selected="Python.Run (1)">
     <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -324,6 +375,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Run (2)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Gateio" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/eos" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/eos/Run.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Run" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Gateio" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -448,8 +521,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Run" />
         <item itemvalue="Python.Run (1)" />
+        <item itemvalue="Python.Run (2)" />
+        <item itemvalue="Python.Run" />
         <item itemvalue="Python.Client" />
         <item itemvalue="Python.Commons" />
       </list>
@@ -494,19 +568,34 @@
       <option name="project" value="LOCAL" />
       <updated>1561010179776</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="version3">
+      <created>1561217733916</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1561217733916</updated>
+    </task>
+    <task id="LOCAL-00006" summary="version3">
+      <created>1561299073245</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1561299073245</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22470239" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22842261" />
       <window_info id="Structure" order="1" weight="0.16369048" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.2782324" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4985119" visible="true" weight="0.109656304" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.049099836" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4985119" visible="true" weight="0.17184943" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3747954" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -532,17 +621,11 @@
     <MESSAGE value="version1" />
     <MESSAGE value="version1.1" />
     <MESSAGE value="version2" />
-    <option name="LAST_COMMIT_MESSAGE" value="version2" />
+    <MESSAGE value="version3" />
+    <option name="LAST_COMMIT_MESSAGE" value="version3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/btc/Run.py</url>
-          <line>25</line>
-          <option name="timeStamp" value="90" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -662,10 +745,10 @@ DataFrame(sell_depth_data, columns=['price', 'amount'])</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/python/log.log">
+    <entry file="file://$PROJECT_DIR$/eos/log.log">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/python/HttpUtil.py">
+    <entry file="file://$PROJECT_DIR$/pub/HttpUtil.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-150">
           <caret line="9" column="66" selection-start-line="9" selection-start-column="66" selection-end-line="9" selection-end-column="66" />
@@ -676,51 +759,17 @@ DataFrame(sell_depth_data, columns=['price', 'amount'])</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/python/sell_flag">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" selection-start-column="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/python/gateAPI.py">
+    <entry file="file://$PROJECT_DIR$/pub/gateAPI.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3350">
           <caret line="134" selection-start-line="134" selection-end-line="134" />
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python37/Lib/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="311" selection-start-line="311" selection-end-line="311" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/btc/log.log">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/btc/Business.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/btc/Ma_Value.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/btc/start.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/python/start.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/python/Client.py">
+    <entry file="file://$PROJECT_DIR$/pub/Client.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-175">
           <caret line="12" selection-start-line="12" selection-end-line="12" />
@@ -733,62 +782,110 @@ DataFrame(sell_depth_data, columns=['price', 'amount'])</expression-string>
     <entry file="file://$PROJECT_DIR$/btc/Client.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/btc/sell_flag">
+    <entry file="file://$PROJECT_DIR$/eos/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/btc/buy_flag">
+    <entry file="file://$PROJECT_DIR$/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/python/buy_flag">
+    <entry file="file://$PROJECT_DIR$/eos/sell_flag">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python37/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="309" selection-start-line="309" selection-end-line="309" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/btc/Commons.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="249" column="23" selection-start-line="249" selection-start-column="23" selection-end-line="249" selection-end-column="23" />
+          <folding>
+            <element signature="e#177#187#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eos/buy_flag">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="4" selection-start-column="4" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/python/__init__.py">
+    <entry file="file://$PROJECT_DIR$/eos/Business.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/__init__.py">
+    <entry file="file://$PROJECT_DIR$/btc/Business.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/btc/Commons.py">
+    <entry file="file://$PROJECT_DIR$/btc/buy_flag">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/btc/sell_flag">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/btc/log.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="22" column="17" lean-forward="true" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
+        <state relative-caret-position="100">
+          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eos/start.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pub/Commons.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="34" column="34" lean-forward="true" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
           <folding>
-            <element signature="e#177#187#0" expanded="true" />
+            <element signature="e#174#184#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/python/Commons.py">
+    <entry file="file://$PROJECT_DIR$/btc/start.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-100">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="e#177#187#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="246">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/python/Run.py">
+    <entry file="file://$PROJECT_DIR$/eos/Run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1040">
-          <caret line="54" column="40" lean-forward="true" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
+        <state relative-caret-position="75">
+          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
           <folding>
-            <element signature="e#173#184#0" expanded="true" />
+            <element signature="e#170#181#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/btc/Run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="23" column="22" lean-forward="true" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+        <state relative-caret-position="300">
+          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
           <folding>
-            <element signature="e#173#184#0" expanded="true" />
+            <element signature="e#170#181#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Using git bash.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
         </state>
       </provider>
     </entry>

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/eos
 # -*- coding:utf-8 -*-
 """
     功    能:
@@ -10,8 +10,8 @@
 """
 import time
 import sys
-
-from Commons import TradingFunctions
+sys.path.append('..')
+from pub.Commons import TradingFunctions
 
 
 if __name__ == '__main__':
@@ -21,8 +21,8 @@ if __name__ == '__main__':
     __ma = 5
     __currency = "btc_usdt"
     __hedge_funds = 2500
-    __gain_rate = 0.03
-    __low_income = 25
+    __gain_rate = 0.05
+    __low_income = 20
 
 
     tc = TradingFunctions(Currency=__currency,

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/eos
 # -*- coding: utf-8 -*-
 
 import http.client

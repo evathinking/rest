@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/eos
 # -*- coding: utf-8 -*-
 # encoding: utf-8
 
@@ -6,9 +6,7 @@
 Provide user specific data and interact with gate.io
 '''
 
-from gateAPI import GateIO
-from Commons import TradingFunctions
-import math
+from pub.Commons import TradingFunctions
 
 __during = 10
 __cycle = 300

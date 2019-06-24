@@ -1,11 +1,11 @@
-#!/usr/bin/python
+#!/usr/bin/eos
 # -*- coding: utf-8 -*-
 
 '''
 Provide the GateIO class to abstract web interaction
 '''
 
-from HttpUtil import getSign, httpGet, httpPost, httpGet2
+from pub.HttpUtil import httpGet, httpPost, httpGet2
 
 
 class GateIO:
