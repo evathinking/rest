@@ -16,7 +16,8 @@ import logging
 import math
 import pandas as pd
 from pub.gateAPI import GateIO
-
+from qcloudsms_py import SmsSingleSender
+from qcloudsms_py.httpclient import HTTPError
 
 class TradingFunctions:
 
@@ -60,13 +61,17 @@ class TradingFunctions:
         self.GainRate = GainRate  # 止盈点
         self.LowIncome = LowIncome
 
-        if self.get_buy_flag() is False:
-            if float(HedgeFunds) > float(self.__UsdtNumber) or float(HedgeFunds) <= 1:
-                raise Exception("invalid hedge funds，insufficient usdt or too small hedge funds.")
-            else:
-                self.HedgeFunds = float(HedgeFunds)
-        else:
-            self.HedgeFunds = float(HedgeFunds)  # 对冲USDT数量
+        # 只查看message
+        self.HedgeFunds = float(HedgeFunds)
+
+        # 要买卖
+        # if self.get_buy_flag() is False:
+        #     if float(HedgeFunds) > float(self.__UsdtNumber) or float(HedgeFunds) <= 1:
+        #         raise Exception("invalid hedge funds，insufficient usdt or too small hedge funds.")
+        #     else:
+        #         self.HedgeFunds = float(HedgeFunds)
+        # else:
+        #     self.HedgeFunds = float(HedgeFunds)  # 对冲USDT数量
 
 
     def Write_json(self, file, json):
@@ -78,6 +83,23 @@ class TradingFunctions:
         # 写入log.log
         with open('log.log', 'a+') as d_log:
             d_log.write(log + "\r\n")
+
+    def send_msg(self, msg):
+        appid = 1400223446
+        appkey = "5c83efb0348c92cf9c83697a57643177"
+        strMobile = "18380344303"
+        sms_type = 0  # Enum{0: 普通短信, 1: 营销短信}
+        ssender = SmsSingleSender(appid, appkey)
+        time_now = ""
+        result = ""
+        try:
+            result = ssender.send(sms_type, 86, strMobile, "当前时间{0}发现你的账号{1}异地登录，请注意。".format(time_now, msg),
+                                  extend="", ext="")
+        except HTTPError as e:
+            print(e)
+        except Exception as e:
+            print(e)
+        print(result)
 
     def Time_stamp(self, timeNum):
         """
@@ -162,14 +184,16 @@ class TradingFunctions:
         stock_data = pd.read_csv(self.MaFilePath, parse_dates=True, index_col=0)
         first_line = stock_data.to_dict('record')[0]
         second_line = stock_data.to_dict('record')[1]
+        third_line = stock_data.to_dict('record')[2]
         angle = float(self.calc_angle(0, float(second_line['Ma5']), 1, float(first_line['Ma5'])))
 
         # 优化买入算法为金叉算法
         date_stamp = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
-        if float(second_line['Ma10']) > float(second_line['Ma5']) and float(first_line['Ma5']) > float(
+        if float(third_line['Ma10']) > float(third_line['Ma5']) and float(second_line['Ma10']) > float(second_line['Ma5']) and float(first_line['Ma5']) > float(
                 first_line['Ma10']):
             self.logger.info("【买点】找到金叉点{0}。".format(date_stamp))
-            return True
+            buy_price = float(self.gate_query.ticker(self.Currency)['last'])
+            return ("buy:" + buy_price).upper()
 
         # if float(first_line['low']) >= float(first_line['Ma5']):
         #     if angle >= 0:
@@ -234,36 +258,20 @@ class TradingFunctions:
         stock_data = pd.read_csv(self.MaFilePath, parse_dates=True, index_col=0)
         first_line = stock_data.to_dict('record')[0]
         second_line = stock_data.to_dict('record')[1]
+        third_line = stock_data.to_dict('record')[2]
         angle = float(self.calc_angle(0, float(second_line['Ma5']), 1, float(first_line['Ma5'])))
-        judge_gain = self.judge_gain(current_price)
 
-
-        # 当前价格高出Ma5超过8%，卖出
-        if float(current_price) > float(first_line['Ma5']) * 1.08:
-            self.logger.info("【卖点1】最高价超过均线8%,当前价格{1}可以卖出。".format(date_stamp, current_price))
-            return True
-
-        ## 价格止盈点
-        if judge_gain == "price_gain":
-            self.logger.info("【卖点2】超过设定买价的止盈值。")
-            return True
+        if angle < 0:
+            self.logger.info("{0} 角度下倾，当前价格{1}可以卖出。".format(angle, current_price))
+            return ("angle:" + str(current_price)).upper()
 
         # 这里把最低收益纳入，避免出现死叉过于敏感
-        if float(first_line['Ma10']) > float(first_line['Ma5']) and float(second_line['Ma10']) < float(
-                second_line['Ma5']) and judge_gain == "lowest_income":
-            self.logger.info("【卖点2】{0}死叉出现，且达到最低收益{1}。".format(date_stamp, current_price))
-            return True
+        if float(third_line['Ma10']) < float(third_line['Ma5']) and float(second_line['Ma10']) < float(
+                second_line['Ma5']) and float(first_line['Ma10']) > float(first_line['Ma5']):
+            self.logger.info("【卖点】{0}死叉出现{1}。".format(date_stamp, current_price))
+            return ("dead:" + str(current_price)).upper()
 
-        # 如果只是低于均线， 止盈点到了就卖 角度上扬持有 角度下斜15度，卖出 最低低于均线超过8，卖出
-        if float(first_line['low']) < float(first_line['Ma5']):
-            if angle >= 0:
-                self.logger.info("{0} 最低价低于均线，但角度上扬，可继续持有，当前价格{1}可以不卖出。".format(angle, current_price))
-                return False
-            # 跑在死叉之前
-            if judge_gain == "lowest_income":
-                self.logger.info("{0} 低于均线，最低收益已达到，当前价格{1}可以卖出。".format(date_stamp, current_price))
-                return True
-
+        self.logger.info("{0}非卖点{1}。".format(date_stamp, current_price))
         return False
 
     def sell(self):
@@ -310,40 +318,6 @@ class TradingFunctions:
             return True
 
         return False
-
-    def sell_current_price(self, current_price):
-        self.sell_price = float(current_price) * 0.998
-        self.sell_eos_amount = float(self.HedgeFunds / self.sell_price)
-        self.sell_cost = self.HedgeFunds * 0.002
-        before_eos = self.__CoinNumber
-        before_usdt = self.__UsdtNumber
-
-        # sell_res = self.gate_trade.sell(self.Currency, eos_price, eos_amount)
-
-        self.__CoinNumber = float(before_eos) - float(self.sell_eos_amount)
-        self.__UsdtNumber = float(before_usdt) + float(self.HedgeFunds) - float(self.sell_cost)
-        date_stampe = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
-
-        # headers = ['date', 'business', 'before_eos', 'before_usdt', 'sell_eos_amount',
-        #            'sell_price', 'cost', 'after_eos', 'after_usdt']
-        row = [date_stampe,
-               'C_Sell',
-               before_eos,
-               before_usdt,
-               self.sell_eos_amount,
-               self.sell_price,
-               self.sell_cost,
-               self.__CoinNumber,
-               self.__UsdtNumber]
-        self.logger.info(row)
-        with open(self.BusinessFilePath, 'a+', newline='')as f:
-            f_csv = csv.writer(f)
-            # f_csv.writerow(headers)
-            f_csv.writerow(row)
-            f.close()
-
-        # return sell_res['orderNumber']
-        return "sell_orderNumber"
 
     def get_order_status(self, orderNumber):
         # return self.gate_trade.getOrder(orderNumber, self.Currency)['order']['status']
@@ -401,7 +375,7 @@ class TradingFunctions:
             self.logger.info("【卖点】当前的赢利点超过买入价格{0}，大于止盈点{1}：".format(str(gain_rate), str(self.GainRate)))
             return "price_gain"
 
-        if float(all_gain - all_cost) > self.LowIncome:
+        if float(all_gain - all_cost) >= self.LowIncome:
             self.logger.info(
                 "【低收益卖点】当前的币的个数是{0}，成本是{1}，净收益USDT是{2}，收益为正值超过{3} USDT。"
                     .format(float(float(self.buy_eos_amount) - tmp_sell_eos_amount),
@@ -433,6 +407,16 @@ class TradingFunctions:
         with open('sell_flag', 'w') as s_f:
             s_f.write(value + "\r\n")
 
+    def get_usdt_flag(self):
+        with open('usdt_flag', 'r') as t:
+            res = t.read()
+        return eval(res)
+
+    def set_usdt_flag(self, value):
+        with open('usdt_flag', 'w') as s_f:
+            s_f.write(value + "\r\n")
+
+
     def calc_angle(self, x_point_s, y_point_s, x_point_e, y_point_e):
         angle = 0
         y_se = y_point_e - y_point_s;
@@ -444,3 +428,13 @@ class TradingFunctions:
         else:
             angle = -((math.atan(y_se / x_se) * 180 / math.pi) + 90)
         return angle
+
+    def get_usdt_min_price(self):
+        current_price = self.gate_query.orderBooks_c2c()
+        asks = current_price['asks']
+        price_list = []
+        for ask in asks:
+            price_list.append(ask[0])
+        min_price = min(price_list)
+        self.logger.info("当前USDT最低入门价：{0}".format(min_price))
+        return min_price

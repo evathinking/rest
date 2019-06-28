@@ -47,7 +47,13 @@ class GateIO:
         else:
             return response
 
-    # 所有交易行情
+    def orderBooks_c2c(self):
+        URL = "/api2/1/orderBooks_c2c"
+        params = ''
+        response = httpGet(self.__url, URL, params)
+        return response['usdt_cny']
+
+    # 所有交易
     def tickers(self, coin_pair="eos_usdt"):
         URL = "/api2/1/tickers"
         params = ''

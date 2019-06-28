@@ -9,8 +9,7 @@
         华为技术有限公司，版权所有(C) 2019-2020
 """
 import time
-import sys
-sys.path.append('..')
+
 from pub.Commons import TradingFunctions
 
 if __name__ == '__main__':
@@ -21,7 +20,7 @@ if __name__ == '__main__':
     __currency = "eos_usdt"
     __hedge_funds = 2500
     __gain_rate = 0.03
-    __low_income = 10
+    __low_income = 30
 
     tc = TradingFunctions(Currency=__currency,
                           Cycle=__cycle,
@@ -36,6 +35,7 @@ if __name__ == '__main__':
         while __buy_flag is False:
             buy = tc.buy_point()
             if buy:
+                tc.send_msg("找到金叉")
                 tc.buy()
                 tc.set_buy_flag("True")
                 tc.set_sell_flag("False")
@@ -48,6 +48,7 @@ if __name__ == '__main__':
         while __buy_flag is True and __sell_flag is False:
             sell = tc.sell_point()
             if sell:
+                tc.send_msg("找到死叉")
                 tc.sell()
                 tc.set_buy_flag("False")
                 tc.set_sell_flag("True")

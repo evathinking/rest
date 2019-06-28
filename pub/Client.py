@@ -5,7 +5,7 @@
 '''
 Provide user specific data and interact with gate.io
 '''
-
+from pub.gateAPI import GateIO
 from pub.Commons import TradingFunctions
 
 __during = 10
@@ -14,15 +14,27 @@ __ma = 5
 __currency = "eos_usdt"
 __hedge_funds = 500
 __gain_rate = 0.03
+__low_income = 35
+apiKey = '02542CE3-4E60-4BDE-B5E2-1962112A14AE'
+secretKey = '96472f3bf7d53a26286cb0410a0adabed57bd133d407d5116251a9d309a0ad64'
+
+## Provide constants
+API_QUERY_URL = 'data.gateio.co'
+API_TRADE_URL = 'api.gateio.co'
+
+## Create a gate class instance
+gate_query = GateIO(API_QUERY_URL, apiKey, secretKey)
+gate_trade = GateIO(API_TRADE_URL, apiKey, secretKey)
 
 tc = TradingFunctions(Currency=__currency,
                       Cycle=__cycle,
                       Ma=__ma,
                       HedgeFunds=__hedge_funds,
-                      GainRate=__gain_rate)
+                      GainRate=__gain_rate,
+                      LowIncome=__low_income)
 
-tc.write_kdata_into_csv(tc.get_gateio_kdata())
-tc.self.caculate_ma_kdj()
+
+
 
 #
 # def calc_angle(x_point_s, y_point_s, x_point_e, y_point_e):

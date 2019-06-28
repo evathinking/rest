@@ -31,14 +31,12 @@ if __name__ == '__main__':
                           HedgeFunds=__hedge_funds,
                           GainRate=__gain_rate,
                           LowIncome=__low_income)
-
     while True:
         buy = tc.buy_point()
         if buy and tc.get_buy_flag() is False:
             tc.send_msg(buy)
             tc.send_msg(buy)
             tc.send_msg(buy)
-            # tc.buy()
             tc.set_buy_flag("True")
             tc.set_sell_flag("False")
         sell = tc.sell_point()
@@ -46,7 +44,6 @@ if __name__ == '__main__':
             tc.send_msg(sell)
             tc.send_msg(sell)
             tc.send_msg(sell)
-            # tc.sell()
             tc.set_sell_flag("True")
             tc.set_buy_flag("False")
         usdt_price = tc.get_usdt_min_price()
