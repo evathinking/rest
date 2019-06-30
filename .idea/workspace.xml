@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0991b173-dcf6-4c3f-a578-50a92ab60da8" name="Default" comment="version4">
-      <change afterPath="$PROJECT_DIR$/btc/Msg.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/btc/usdt_flag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pub/Message.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="0991b173-dcf6-4c3f-a578-50a92ab60da8" name="Default" comment="version5">
       <change beforePath="$PROJECT_DIR$/btc/Run.py" beforeDir="false" afterPath="$PROJECT_DIR$/btc/Run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eos/Run.py" beforeDir="false" afterPath="$PROJECT_DIR$/eos/Run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pub/Client.py" beforeDir="false" afterPath="$PROJECT_DIR$/pub/Client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btc/buy_flag" beforeDir="false" afterPath="$PROJECT_DIR$/btc/buy_flag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btc/sell_flag" beforeDir="false" afterPath="$PROJECT_DIR$/btc/sell_flag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btc/usdt_flag" beforeDir="false" afterPath="$PROJECT_DIR$/btc/usdt_flag" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pub/Commons.py" beforeDir="false" afterPath="$PROJECT_DIR$/pub/Commons.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pub/gateAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/pub/gateAPI.py" afterDir="false" />
     </list>
     <ignored path="Gateio.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,22 +29,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pub/Commons.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="438" column="59" selection-start-line="438" selection-start-column="59" selection-end-line="438" selection-end-column="59" />
-              <folding>
-                <element signature="e#174#184#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/btc/Run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="50" column="36" lean-forward="true" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
+            <state relative-caret-position="-436">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
               <folding>
                 <element signature="e#170#181#0" expanded="true" />
               </folding>
@@ -112,13 +96,14 @@
         <option value="$PROJECT_DIR$/eos/Run.py" />
         <option value="$PROJECT_DIR$/pub/gateAPI.py" />
         <option value="$PROJECT_DIR$/pub/Client.py" />
-        <option value="$PROJECT_DIR$/btc/usdt_flag" />
         <option value="$PROJECT_DIR$/pub/Commons2.py" />
         <option value="$PROJECT_DIR$/pub/Message.py" />
         <option value="$PROJECT_DIR$/btc/log.log" />
         <option value="$PROJECT_DIR$/btc/Msg.py" />
         <option value="$PROJECT_DIR$/btc/Run.py" />
         <option value="$PROJECT_DIR$/pub/Commons.py" />
+        <option value="$PROJECT_DIR$/btc/usdt_flag" />
+        <option value="$PROJECT_DIR$/btc/sell_flag" />
       </list>
     </option>
   </component>
@@ -153,11 +138,6 @@
               <item name="Gateio" type="b2602c69:ProjectViewProjectNode" />
               <item name="Gateio" type="462c0819:PsiDirectoryNode" />
               <item name="btc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Gateio" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Gateio" type="462c0819:PsiDirectoryNode" />
-              <item name="pub" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -564,20 +544,26 @@
       <option name="project" value="LOCAL" />
       <updated>1561394310820</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="version5">
+      <created>1561731105070</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1561731105070</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19940476" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19940476" />
       <window_info id="Structure" order="1" weight="0.16443452" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.2782324" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4985119" visible="true" weight="0.12111293" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.46317512" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4985119" weight="0.13256955" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.35188216" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -605,10 +591,38 @@
     <MESSAGE value="version2" />
     <MESSAGE value="version3" />
     <MESSAGE value="version4" />
-    <option name="LAST_COMMIT_MESSAGE" value="version4" />
+    <MESSAGE value="version5" />
+    <option name="LAST_COMMIT_MESSAGE" value="version5" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pub/Commons.py</url>
+          <line>101</line>
+          <option name="timeStamp" value="107" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pub/Commons.py</url>
+          <line>264</line>
+          <option name="timeStamp" value="109" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pub/Commons.py</url>
+          <line>270</line>
+          <option name="timeStamp" value="110" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pub/Commons.py</url>
+          <line>273</line>
+          <option name="timeStamp" value="115" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/btc/Run.py</url>
+          <line>52</line>
+          <option name="timeStamp" value="116" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -617,15 +631,49 @@
         </breakpoint>
       </default-breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="PythonConfigurationType">
-        <watch expression="min(current_price)" language="Python" />
-        <watch expression="min(price_list)" language="Python" />
-      </configuration>
-    </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>(&quot;angle:&quot; + str(int(float(current_price)))).upper()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>(&quot;dead:&quot; + str(int(float(current_price)))).upper()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>(&quot;angle:&quot; + str(int(current_price))).upper()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>(&quot;angle:&quot; + str(current_price)).upper()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>(&quot;dead:&quot; + str(current_price)).upper()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>float(usdt_price) &lt;= __usdt_income and tc.get_usdt_flag() is False</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>(&quot;buy:&quot; + str(buy_price)).upper()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>float(self.gate_query.ticker(self.Currency)['last'])</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>min(price_list)</expression-string>
         <language-id>Python</language-id>
@@ -633,47 +681,6 @@
       </expression>
       <expression>
         <expression-string>min(current_price)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>gate_query.marketlist()</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>gate_query.ticker(&quot;usdt&quot;)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>len(buy_his['trades']) == 0</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>buy_res['orderNumber']</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>buy_status['order']['status']</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>self.gate_query.orderBook('eos_usdt')['asks']</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>not self.gate_query.orderBook('eos_usdt')['asks'].
-DataFrame(sell_depth_data, columns=['price', 'amount'])</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>self.gate_query.orderBook('eos_usdt')['asks']DataFrame(sell_depth_data, columns=['price', 'amount'])</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -787,12 +794,6 @@ DataFrame(sell_depth_data, columns=['price', 'amount'])</expression-string>
     <entry file="file://$PROJECT_DIR$/btc/Business.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/btc/buy_flag">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/btc/sell_flag">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/eos/start.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
@@ -856,13 +857,6 @@ DataFrame(sell_depth_data, columns=['price', 'amount'])</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/btc/usdt_flag">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pub/Message.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="584">
@@ -910,22 +904,43 @@ DataFrame(sell_depth_data, columns=['price', 'amount'])</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/btc/Run.py">
+    <entry file="file://$PROJECT_DIR$/btc/buy_flag">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="50" column="36" lean-forward="true" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
-          <folding>
-            <element signature="e#170#181#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="25">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/btc/sell_flag">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/btc/usdt_flag">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pub/Commons.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="438" column="59" selection-start-line="438" selection-start-column="59" selection-end-line="438" selection-end-column="59" />
+        <state relative-caret-position="2189">
+          <caret line="106" column="13" lean-forward="true" selection-start-line="106" selection-start-column="13" selection-end-line="106" selection-end-column="13" />
           <folding>
             <element signature="e#174#184#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/btc/Run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-436">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="e#170#181#0" expanded="true" />
           </folding>
         </state>
       </provider>
