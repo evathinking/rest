@@ -23,7 +23,7 @@ if __name__ == '__main__':
     __hedge_funds = 4500
     __gain_rate = 0.05
     __low_income = 35
-    __usdt_income = 6.98
+    __usdt_income = 7.07
 
     tc = TradingFunctions(Currency=__currency,
                           Cycle=__cycle,

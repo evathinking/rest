@@ -99,7 +99,7 @@ class TradingFunctions:
             print(e)
         except Exception as e:
             print(e)
-        print(result)
+        self.logger.info(result)
 
     def Time_stamp(self, timeNum):
         """
@@ -186,14 +186,13 @@ class TradingFunctions:
         second_line = stock_data.to_dict('record')[1]
         third_line = stock_data.to_dict('record')[2]
         angle = float(self.calc_angle(0, float(second_line['Ma5']), 1, float(first_line['Ma5'])))
-
+        buy_price = float(self.gate_query.ticker(self.Currency)['last'])
         # 优化买入算法为金叉算法
         date_stamp = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
         if float(third_line['Ma10']) > float(third_line['Ma5']) and float(second_line['Ma10']) > float(second_line['Ma5']) and float(first_line['Ma5']) > float(
                 first_line['Ma10']):
             self.logger.info("【买点】找到金叉点{0}。".format(date_stamp))
-            buy_price = float(self.gate_query.ticker(self.Currency)['last'])
-            return ("buy:" + buy_price).upper()
+            return ("buy:" + str(buy_price)).upper()
 
         # if float(first_line['low']) >= float(first_line['Ma5']):
         #     if angle >= 0:
@@ -263,13 +262,13 @@ class TradingFunctions:
 
         if angle < 0:
             self.logger.info("{0} 角度下倾，当前价格{1}可以卖出。".format(angle, current_price))
-            return ("angle:" + str(current_price)).upper()
+            return ("ang:" + str(int(float(current_price)))).upper()
 
         # 这里把最低收益纳入，避免出现死叉过于敏感
         if float(third_line['Ma10']) < float(third_line['Ma5']) and float(second_line['Ma10']) < float(
                 second_line['Ma5']) and float(first_line['Ma10']) > float(first_line['Ma5']):
             self.logger.info("【卖点】{0}死叉出现{1}。".format(date_stamp, current_price))
-            return ("dead:" + str(current_price)).upper()
+            return ("die:" + str(int(float(current_price)))).upper()
 
         self.logger.info("{0}非卖点{1}。".format(date_stamp, current_price))
         return False
